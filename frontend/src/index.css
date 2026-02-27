@@ -1,14 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@400;500;600;700&display=swap');
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Outfit;
+  font-family: 'Outfit', 'Poppins', sans-serif;
   scroll-behavior: smooth;
 }
 
 body{
   min-height: 100vh;
+  background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%);
 }
 
 a{
@@ -23,20 +44,63 @@ a{
 
 @keyframes fadeIn {
   0%{
-    opacity:0 ;
+    opacity: 0;
+    transform: translateY(10px);
   }
   100%{
     opacity: 1;
+    transform: translateY(0);
   }
 }
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 99, 71, 0.3), 0 0 20px rgba(255, 99, 71, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 99, 71, 0.5), 0 0 30px rgba(255, 99, 71, 0.2);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
 /* Light theme */
 body[data-theme="light"] {
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
   color: #222;
 }
 
 /* Dark theme */
 body[data-theme="dark"] {
-  background-color: #121212;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   color: #f1f1f1;
 }

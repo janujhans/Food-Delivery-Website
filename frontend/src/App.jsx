@@ -8,10 +8,15 @@ import Footer from './components/Footer/Footer'
 import LoginPopup from './components/LoginPopup/LoginPopup'
 import Verify from './pages/Verify/Verify'
 import MyOrders from './pages/MyOrders/MyOrders'
+import AiAssistant from './components/AiAssistant/AiAssistant'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute'
+import { StoreContext } from './components/context/StoreContext'
 
 const App = () => {
 
   const [showLogin, setShowLogin] = useState(false);
+  const { token } = React.useContext(StoreContext);
+
   return (
     <>
     {showLogin? <LoginPopup setShowLogin={setShowLogin}/>:<></>}
@@ -20,12 +25,13 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/cart' element={<Cart/>}/>
-        <Route path='/order' element={<PlaceOrder/>}/>
-        <Route path='/verify' element={<Verify/>}/>
-        <Route path='/myorders' element={<MyOrders/>}/>
+        <Route path='/order' element={<PrivateRoute token={token}><PlaceOrder/></PrivateRoute>}/>
+        <Route path='/verify' element={<PrivateRoute token={token}><Verify/></PrivateRoute>}/>
+        <Route path='/myorders' element={<PrivateRoute token={token}><MyOrders/></PrivateRoute>}/>
       </Routes>
     </div>
     <Footer/>
+    <AiAssistant />
     </>
   )
 }

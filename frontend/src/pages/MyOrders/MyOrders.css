@@ -1,5 +1,6 @@
 .my-orders{
     margin: 50px 0px;
+    animation: slideInLeft 0.6s ease;
 }
 
 .my-orders .container{
@@ -15,9 +16,18 @@
     align-items: center;
     gap: 30px;
     font-size: 14px;
-    padding: 10px 20px;
+    padding: 15px 20px;
     color: #454545;
-    border: 1px solid tomato;
+    border: 2px solid #8b5cf6;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(139,92,246,0.05), rgba(167,139,250,0.02));
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.my-orders-order:hover {
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+    transform: translateY(-5px);
+    border-color: #a78bfa;
 }
 
 .my-orders-order img{
@@ -35,11 +45,21 @@
 
 .my-orders-order button{
     border: none;
-    padding: 12px 0px;
-    border-radius: 4px;
-    background-color: #ffe1e1;
-    color: #454545;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #e9d5ff, #f3e8ff);
+    color: #8b5cf6;
     cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.1);
+}
+
+.my-orders-order button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.25);
+    color: white;
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
 }
 
 @media (max-width:900px){
