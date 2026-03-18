@@ -16,7 +16,7 @@
 
 .food-display h2:hover{
     transform: translateX(10px);
-    text-shadow: 0 0 20px rgba(255,99,71,0.2);
+    text-shadow: 0 0 20px rgba(139,92,246,0.25);
 }
 
 .food-display-list{

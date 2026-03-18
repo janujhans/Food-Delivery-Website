@@ -1,5 +1,6 @@
 import React from 'react'
 import './Header.css'
+import { assets } from '../../assets/assets'
 
 const Header = () => {
   const handleViewMenu = () => {
@@ -11,7 +12,7 @@ const Header = () => {
   };
 
   return (
-    <div className='header'>
+    <div className='header' style={{ backgroundImage: `url(${assets.header_img})` }}>
         <div className="header-contents">
             <h2>Order your favourite food here</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique dolorem, dicta itaque iure fugiat architecto.</p>

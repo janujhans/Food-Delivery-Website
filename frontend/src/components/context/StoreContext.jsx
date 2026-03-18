@@ -123,15 +123,10 @@ const StoreContextProvider = (props) => {
     async function loadData() {
       await fetchFoodList();
       await loadAdditionalFoods(); // Load API foods on mount
-      if (localStorage.getItem("token")) {
-        const savedToken = localStorage.getItem("token");
-        setToken(savedToken);
-        const savedRole = localStorage.getItem("role");
-        if (savedRole) setRole(savedRole);
-        const savedUserInfo = localStorage.getItem("userInfo");
-        if (savedUserInfo) setUserInfo(JSON.parse(savedUserInfo));
-        await loadCartData(savedToken);
-      }
+
+      localStorage.removeItem("token");
+      localStorage.removeItem("role");
+      localStorage.removeItem("userInfo");
     }
     loadData();
   }, []);

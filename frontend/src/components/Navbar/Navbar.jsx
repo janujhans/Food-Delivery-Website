@@ -4,12 +4,19 @@ import { assets } from "../../assets/assets";
 import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../context/StoreContext";
 import { ThemeContext } from "../context/ThemeContext";
-import PropTypes from "prop-types";
 
-const Navbar = ({ setShowLogin }) => {
+const Navbar = () => {
   const [menu, setMenu] = useState("home");
 
-  const { getTotalCartAmount, token, setToken, role, setRole, userInfo, setUserInfo } =
+  const {
+    getTotalCartAmount,
+    token,
+    setToken,
+    role,
+    setRole,
+    userInfo,
+    setUserInfo,
+  } =
     useContext(StoreContext);
 
   const { theme, toggleTheme } =
@@ -51,8 +58,6 @@ const Navbar = ({ setShowLogin }) => {
           {theme === "light" ? "🌙" : "☀️"}
         </button>
 
-        <img src={assets.search_icon} alt="" tabIndex={-1} />
-
         <div className="navbar-search-icon">
           <Link to="/cart" tabIndex={-1}>
             <img src={assets.basket_icon} alt="" tabIndex={-1} />
@@ -60,31 +65,23 @@ const Navbar = ({ setShowLogin }) => {
           <div className={getTotalCartAmount() === 0 ? "" : "dot"} />
         </div>
 
-        {!token ? (
-          <button tabIndex={-1} onClick={() => setShowLogin(true)}>sign in</button>
-        ) : (
-          <div className="navbar-profile">
-            <img src={assets.profile_icon} alt="" tabIndex={-1} />
-            <ul className="nav-profile-dropdown">
-              <li onClick={() => navigate("/myorders")}>
-                <img src={assets.bag_icon} alt="" />
-                <p>Orders</p>
-              </li>
-              <hr />
-              <li onClick={logout}>
-                <img src={assets.logout_icon} alt="" />
-                <p>Logout</p>
-              </li>
-            </ul>
-          </div>
-        )}
+        <div className="navbar-profile">
+          <img src={assets.profile_icon} alt="" tabIndex={-1} />
+          <ul className="nav-profile-dropdown">
+            <li onClick={() => navigate("/myorders")}>
+              <img src={assets.bag_icon} alt="" />
+              <p>Orders</p>
+            </li>
+            <hr />
+            <li onClick={logout}>
+              <img src={assets.logout_icon} alt="" />
+              <p>Logout</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
-};
-
-Navbar.propTypes = {
-  setShowLogin: PropTypes.func.isRequired,
 };
 
 export default Navbar;

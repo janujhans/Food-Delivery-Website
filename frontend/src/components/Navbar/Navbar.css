@@ -133,7 +133,7 @@
     position: absolute;
     min-width: 10px;
     min-height: 10px;
-    background: linear-gradient(135deg, #ff6347, #ff8c69);
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
     border-radius: 50%;
     top: -8px;
     right: -8px;
@@ -166,7 +166,7 @@
     backdrop-filter: blur(10px);
     padding: 15px 20px;
     border-radius: 12px;
-    border: 1px solid rgba(255, 99, 71, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.2);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     list-style: none;
 }
@@ -181,7 +181,7 @@
 }
 
 .nav-profile-dropdown li:hover{
-    color: #ff6347;
+    color: #8b5cf6;
     transform: translateX(5px);
 }
 
@@ -239,12 +239,13 @@
         padding: 7px 20px;
         font-size: 15px;
     }
+
 }
 
 @media (max-width:750px){
     .navbar-menu{
         display: none;
-    } 
+    }
 }
 .theme-toggle {
   background: none;
