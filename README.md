@@ -1,166 +1,168 @@
-# 🚚 Food Ordering Web App (MERN Stack)
+# 🍽️ Purple Food App — MERN Food Ordering Platform
 
-## ✨ Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Screenshots](#screenshots)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [Contact](#contact)
+An end-to-end food ordering platform built with the MERN stack, featuring a modern purple-themed UI, strict authentication flow, cart + order lifecycle, and an admin dashboard for operations.
 
-## 📊 Introduction
-This is a full-stack food ordering web application built using the MERN stack (MongoDB, Express, React, Node.js). The application consists of a customer-facing app for ordering food and an admin app for managing orders, menu items, and more.
+![MERN](https://img.shields.io/badge/Stack-MERN-6c47ff?style=for-the-badge)
+![React](https://img.shields.io/badge/Frontend-React-8b5cf6?style=for-the-badge)
+![Node.js](https://img.shields.io/badge/Backend-Node.js-a78bfa?style=for-the-badge)
+![MongoDB](https://img.shields.io/badge/Database-MongoDB-6d28d9?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-5b21b6?style=for-the-badge)
 
-## 🚀 Features
-- User authentication and authorization
-- Browse food items
-- Add items to the cart and place orders
-- Stripe Payment Integration: Secure and reliable payment processing using Stripe.
-- Order tracking
-- Admin panel to manage menu items, orders
+---
 
-## 🛠️ Technologies Used
-- **Frontend:** React.js, React Context API, React Router
-- **Backend:** Node.js, Express.js
-- **Payment Gateway:** Stripe
-- **Database:** MongoDB
-- **Authentication:** JWT (JSON Web Tokens)
-- **Styling:** CSS
+## ✨ Why this project stands out
 
-## Installation
-### Prerequisites
-- Node.js
-- MongoDB
+- 🔐 **Strict login experience**: users must authenticate before accessing the app.
+- 🧾 **Real order flow**: browse → add to cart → checkout → track orders.
+- 💳 **Payment-ready architecture** with Stripe integration hooks.
+- 🛠️ **Operational admin panel** for food and order management.
+- 🎨 **Consistent purple design system** with polished UI interactions.
+- ⚡ **Clean full-stack structure** for easy extension and collaboration.
 
-## 🚀 Run Locally — Step-by-step
+---
 
-Make sure you have Node.js (v20+ recommended) and npm installed.
+## 🧩 Tech Stack
 
-### Clone the Repository
-```sh
-git clone https://github.com/DulanjaliSenarathna/mern-food-delivery-app.git
-cd mern-food-delivery-app
+### Frontend (`frontend`)
+- React + Vite
+- React Router
+- Context API (state management)
+- Axios
+
+### Admin (`admin`)
+- React + Vite
+- CRUD workflows for menu and orders
+
+### Backend (`backend`)
+- Node.js + Express
+- MongoDB + Mongoose
+- JWT auth
+- Bcrypt password hashing
+- Stripe support
+
+---
+
+## 🗂️ Project Structure
+
+```text
+FDA/
+├── frontend/   # Customer app
+├── admin/      # Admin dashboard
+└── backend/    # REST API + business logic
 ```
 
-## Backend Setup
-Navigate to the backend directory:
+---
 
-```sh
-cd backend
+## 🚀 Quick Start
 
-```
-Install dependencies:
+### 1) Clone
 
-```sh
-npm install
+```bash
+git clone <your-repo-url>
+cd FDA
 ```
 
-Create a .env file in the backend directory and add the following:
+### 2) Install dependencies
 
-```sh
-JWT_SECRET = "random#secret"
-STRIPE_SECRET_KEY = "your_stripe_secret_key_here" 
-⚠️ Note: Do not commit your .env file. Create your own keys from Stripe Dashboard and use them locally.
-
-```
- 
-Start the backend server:
-
-```sh
-npm run server
-```
-## Frontend Setup
-Navigate to the frontend directory:
-
-```sh
-
-cd frontend
+```bash
+npm --prefix backend install
+npm --prefix frontend install
+npm --prefix admin install
 ```
 
-Install dependencies:
-```sh
+### 3) Configure environment
 
-npm install
+Create `backend/.env` (or update existing) with at least:
+
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+STRIPE_SECRET_KEY=your_stripe_secret
+PORT=4000
 ```
 
-Start the frontend server:
-```sh
+### 4) Run apps
 
-npm run dev
+Backend:
+
+```bash
+npm --prefix backend run server
 ```
 
-## Admin App Setup
+Frontend:
 
-Navigate to the admin directory:
-```sh
-
-cd admin
+```bash
+npm --prefix frontend run dev
 ```
 
-Install dependencies:
+Admin:
 
-```sh
-npm install
+```bash
+npm --prefix admin run dev
 ```
 
-Start the admin app :
-```sh
-npm run dev
-```
+---
 
-## Usage
-Access the customer-facing app at http://localhost:5173.
-Access the admin app at http://localhost:5174.
-Register as a new user or log in with existing credentials.
-Browse the menu, add items to the cart, and place an order.
-Pay using dummy visa card
-Use the admin panel to manage orders, menu items.
+## 🌐 Local URLs
 
-## 📸 Screenshots
-# 🏠 Home : 
-![1](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/b3d604f0-ae0e-4e29-9b95-51f6327c3952)
-# 🔐 Login : 
-![2](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/0cb56d94-a715-48bd-9a7d-05c876a05b2c)
-# 🔐 Signup : 
-![3](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/f5dd216a-dc8d-4042-9a96-4884cdb17aef)
-# 🍔 Menu :
-![Capture2](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/22fc6a58-b713-4ab7-babb-cff5844e7c55)
-# 🍱 Menu Food :
-![Capture3](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/0f7fe1ab-8c29-4fa2-bdb2-7212994cdf80)
-# ℹ️ App Download : 
-![Capture4](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/f41881c6-e148-4215-9953-458bbe602007)
-# 🍱 Menu Food :
-![Capture5](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/34e366fa-8ee5-4f77-a5e0-d5d4ea294672)
-# 🛒 Cart : 
-![Capture6](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/1894f642-ea89-42de-ad74-de173c6c42aa)
-# 📞 Contact :
-![Capture7](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/1a94b8aa-aa4e-4991-9d45-f6548f793b47)
-# ❤️ Payment :
-![Capture8](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/c85e4c11-7ebf-4e45-8678-4000abde835d)
+- Customer app: http://localhost:5173
+- Admin app: http://localhost:5174
+- API server: http://localhost:4000
 
-## 📜 API Documentation
-The API endpoints for the backend can be documented using tools like Postman or Swagger. Include endpoints for user authentication, menu items, orders, and more.
+---
+
+## 🔑 Core Features
+
+- Account creation and sign-in with server-side validation
+- Invalid credential / invalid email / invalid password handling
+- JWT-protected routes
+- Dynamic food listing and filtering
+- Cart persistence in database per user
+- Place order and view order history
+- Admin controls for menu and order management
+
+---
+
+## 🔌 API Highlights
+
+Base URL: `http://localhost:4000/api`
+
+- `POST /user/register` → create account
+- `POST /user/login` → sign in
+- `GET /food/list` → fetch foods
+- `POST /cart/add` → add item to cart
+- `POST /cart/remove` → remove item
+- `POST /cart/get` → retrieve user cart
+- `POST /order/place` → place order
+- `POST /order/userorders` → fetch user orders
+
+---
+
+## 📬 Contact
+
+- Email: sample.foodapp@protonmail.com
+- Phone: +91 7987654321
+
+---
 
 ## 🤝 Contributing
-Contributions are welcome! Please fork the repository and create a pull request with your changes. Make sure to follow the code style and include relevant tests.
 
-👨‍💻 Contributors
+Contributions are welcome and appreciated.
 
-[Dulanjali Senarathna](https://github.com/DulanjaliSenarathna)
- — Project Owner
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feat/amazing-feature`
+3. Commit your changes: `git commit -m "feat: add amazing feature"`
+4. Push to the branch: `git push origin feat/amazing-feature`
+5. Open a Pull Request
 
-[prem2621](https://github.com/prem2621)
- — Bug fixes, secure env handling, image display improvement
+If you find this project useful, consider giving it a ⭐ — it really helps.
 
-## 📫 Contact
-For any questions or suggestions, feel free to contact me.
+---
 
-Happy coding!
+## 👨‍💻 Credits
 
-Feel free to customize this template according to your specific project details and requirements.
+- [Dulanjali Senarathna](https://github.com/DulanjaliSenarathna) — Project Owner
+- [prem2621](https://github.com/prem2621) — Bug fixes and improvements
 
 
 
